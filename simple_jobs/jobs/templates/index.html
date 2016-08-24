@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 500px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+
+
+
+
+<body>
+<h1>Job Posts</h1>
+<ul>
+    {% for job in jobs %}
+    <li>{{ job.title }},&nbsp {{ job.location }},&nbsp {{ job.company }}  : [update] 
+    <a href="{% url "edit" job.id %}">{{ job.title }}</a>
+    <a href="{% url "delete" job.id %}">[delete]</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url "add" %}">New</a>
+
+
+
+<!-- <table>
+  <tr>
+    <th>Job</th>
+    <th>Location</th>
+    <th>Company</th>
+  </tr>
+{#  {% for job in job_query %}#}
+{#  <tr>#}
+{#    <td>{{ job.title }}</td>#}
+{#    <td>{{ job.location }}</td>#}
+{#    <td>{{ job.company }}</td>#}
+{#  </tr>#}
+{#  {% endfor %}#}
+</table> -->
+
+</body>
+</html>
